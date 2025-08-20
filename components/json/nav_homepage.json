@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Documentation",
+    "href": "/docs/introduction",
+    "soon": false
+  },
+  {
+    "name": "Components",
+    "href": "/docs/button",
+    "soon": false
+  },
+  {
+    "name": "Customization",
+    "href": "#",
+    "soon": true
+  }
+]
