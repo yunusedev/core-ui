@@ -1,29 +1,37 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
   --background: hsla(0,0%,100%);
   --background-100: hsla(0,0%,99%);
+  --background-200: hsla(0,0%,98%);
+  --background-300: hsla(0,0%,97%);
+  --background-400: hsla(0,0%,96%);
+  --background-500: hsla(0,0%,95%);
   --foreground: hsla(0,0%,0%);
-  --secondary: hsla(0,0%,90%);
-  --secondary-100: hsla(0,0%,85%);
+  --secondary: hsla(0,0%,95%);
+  --secondary-100: hsla(0,0%,92%);
   --primary: hsla(216,60%,60%);
   --primary-100: hsla(216,52%,70%);
   --muted: hsla(0,0%,40%);
   --warning: hsla(10, 58%,60%);
 }
+
 [data-theme="dark"] {
-  :root {
-    --background: hsla(0,0%,0%);
-    --background-100: hsla(0,0%,0%);
-    --foreground: hsla(0,0%,90%);
-    --secondary: hsla(0,0%,10%);
-    --secondary-100: hsla(0,0%,20%);
-    --primary: hsla(216,52%,55%);
-    --primary-100: hsla(216,52%,55%);
-    --muted: hsla(0,0%,60%);
-    --warning: hsla(0,0%,60%);
-  }
+  --background: hsla(0,0%,0%);
+  --background-100: hsla(0,0%,1%);
+  --background-200: hsla(0,0%,2%);
+  --background-300: hsla(0,0%,3%);
+  --background-400: hsla(0,0%,4%);
+  --background-500: hsla(0,0%,5%);
+  --foreground: hsla(0,0%,100%);
+  --secondary: hsla(0,0%,10%);
+  --secondary-100: hsla(0,0%, 15%);
+  --primary: hsla(216,60%,60%);
+  --primary-100: hsla(216,52%,70%);
+  --muted: hsla(0,0%,60%);
+  --warning: hsla(10, 58%,60%);
 }
 
 @theme inline {
@@ -39,6 +47,10 @@
   --spacing-top: 16px;
   --color-background: var(--background);
   --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+  --color-background-300: var(--background-300);
+  --color-background-400: var(--background-400);
+  --color-background-500: var(--background-500);
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
   --color-secondary-100: var(--secondary-100);

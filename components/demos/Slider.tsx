@@ -13,3 +13,19 @@ export const SliderDemo = () => {
         <Slider defaultValue={[25]} step={1} max={100} />
     )
 }`
+
+export default {
+    examples: [
+        {
+            title: "Slider with multiple ranges",
+            description: "Slider with multiple ranges",
+            component: () => (
+                <Slider
+                defaultValue={[10, 50]}
+                step={1}
+                max={100}
+                />
+            )
+        }
+    ]
+}

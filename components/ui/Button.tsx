@@ -16,7 +16,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       radius = "lg",
       variant = "solid",
       size = "md",
-      color = "secondary",
+      color = "foreground",
       isIconOnly = false,
       ...props
     },

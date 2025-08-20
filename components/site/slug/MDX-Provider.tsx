@@ -17,6 +17,8 @@ export { CardDemo } from "../../demos/Card"
 export { SwitchDemo } from "../../demos/Switch"
 export { SpinnerDemo } from "../../demos/Spinner"
 export { TextDemo } from "../../demos/Text"
+export { PropsTable } from "./PropsTable"
+export { Examples } from "./Examples"
 export const h1 = ({ id, ...props }: any) => <Heading htype="h3" className="mb-3" {...props} />;
 export const h2 = ({ id, ...props }: any) => <Heading htype="h4" className="mb-3" {...props} />;
 export const h3 = ({ id, ...props }: any) => <Heading htype="h5" className="mb-3" {...props} />;

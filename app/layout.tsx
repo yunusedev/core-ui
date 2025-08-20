@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased`}
       >
-        <ThemeProvider attribute={"class"}>
+        <ThemeProvider>
           {children}
         </ThemeProvider>
       </body>

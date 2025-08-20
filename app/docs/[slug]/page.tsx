@@ -36,13 +36,13 @@ export default function Page() {
     <>
       <Header />
       <Navbar>
-        <section className="flex flex-col gap-8">
+        <section className="flex flex-col gap-8 mb-8">
           <header className="flex flex-col gap-4">
             <Heading htype="h3">{docs.title}</Heading>
             <Paragraph>{docs.description}</Paragraph>
             {docs.api && (
               <Link target="_blank" href={docs.api}>
-                <Button size="sm" radius="md">
+                <Button color="secondary" size="sm" radius="md">
                   <Icon icon={"solar:code-file-outline"} />
                   Documentation
                 </Button>

@@ -23,7 +23,7 @@ export const Navbar = ({children}: {children: React.ReactNode}) => {
             </div>
         </nav>
 
-        <main className="lg:ml-[500px] ml-container-mobile mr-container-mobile lg:mr-container mt-12">
+        <main className="lg:ml-[425px] 2xl:ml-[500px] ml-container-mobile mr-container-mobile 2xl:mr-container mt-12">
             {children}
         </main>
         </>

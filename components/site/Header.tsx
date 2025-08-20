@@ -7,9 +7,22 @@ import { Button } from "../ui/Button";
 import { Drawer, DrawerBody, DrawerTitle, DrawerTrigger } from "../ui/Drawer";
 import { cn } from "../libs/utils";
 import { dropdownClasses } from "../ui/Dropdown";
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 export const Header = () => {
+  const { theme, setTheme } = useTheme()
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const headerRef = useRef<HTMLDivElement>(null)
+useEffect(() => {
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 15);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   return (
-    <header className="centerBox py-top sticky top-0 flex items-center justify-between">
+    <header ref={headerRef} className={cn("centerBox py-top sticky top-0 flex items-center justify-between", {"bg-background/50 backdrop-blur-md": isScrolled})}>
       <div className="flex items-center gap-8">
         <Link href={"/"} className="flex items-center gap-2">
           <Icon className="text-2xl" icon={"solar:box-minimalistic-outline"} />
@@ -37,7 +50,7 @@ export const Header = () => {
       <div className="flex items-center gap-3">
         <Drawer>
           <DrawerTrigger>
-        <Button className="flex lg:hidden" size="sm" isIconOnly><Icon className="text-lg" icon={"solar:hamburger-menu-outline"} /></Button>
+        <Button color="secondary" className="flex lg:hidden" size="sm" isIconOnly><Icon className="text-lg" icon={"solar:hamburger-menu-outline"} /></Button>
           </DrawerTrigger>
           <DrawerBody>
             <DrawerTitle />
@@ -47,11 +60,11 @@ export const Header = () => {
           </DrawerBody>
         </Drawer>
         <Link className="hidden lg:flex" href={"https://github.com/yunusedev"}>
-          <Button isIconOnly size="sm">
+          <Button color="secondary" isIconOnly size="sm">
             <Icon className="text-base" icon={"logos:github-icon"} />
           </Button>
         </Link>
-        <Button className="hidden lg:flex items-center justify-center flex" isIconOnly size="sm">
+        <Button onClick={() => setTheme(theme == "dark" ? "light" : "dark")} color="secondary" className="hidden lg:flex items-center justify-center flex" isIconOnly size="sm">
           <Icon className="text-base" icon={"solar:moon-outline"} />
         </Button>
       </div>

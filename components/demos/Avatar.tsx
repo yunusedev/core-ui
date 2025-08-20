@@ -42,3 +42,29 @@ export const AvatarDemo = () => {
         </div>
     )
 }`;
+
+export default {
+  props: [
+    {
+      prop: "src",
+      type: "string",
+      default: null,
+      required: false,
+      description: "Image source link"
+    },
+    {
+      prop: "size",
+      type: "sm | md | lg | xl | 2xl | 3xl",
+      default: "md",
+      required: false,
+      description: "Image size"
+    },
+    {
+      prop: "fallback",
+      type: "string",
+      default: "UI",
+      required: false,
+      description: "If image is not loading or no image, It's block"
+    }
+  ]
+}

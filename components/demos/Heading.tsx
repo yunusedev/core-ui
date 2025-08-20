@@ -25,3 +25,15 @@ export const HeadingDemo = () => {
         </div>
     )
 }`
+
+export default {
+    props: [
+        {
+            prop: "htype",
+            default:null,
+            required:true,
+            type:"h1 | h2 | h3 | h4 | h5",
+            description: "Heading Size Type"
+        }
+    ]
+}
