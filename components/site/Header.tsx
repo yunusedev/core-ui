@@ -11,8 +11,11 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { Dialog, DialogBody, DialogTitle, DialogTrigger } from "../ui/Dialog";
 import { allDocs, Docs } from "@/.contentlayer/generated";
+import allItems from "@/components/json/nav_docs.json"
+import { usePathname } from "next/navigation";
 export const Header = () => {
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
   const [search, setSearch] = useState<string>("");
   const [results, setResults] = useState<Docs[]>([]);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -82,21 +85,16 @@ export const Header = () => {
           </DrawerTrigger>
           <DrawerBody>
             <DrawerTitle />
-            <Link
-              href={"/docs/introduction"}
-              className={cn(dropdownClasses.item)}
-            >
-              <span>Docs</span>
-            </Link>
-            <Link href={"/docs/button"} className={cn(dropdownClasses.item)}>
-              <span>Components</span>
-            </Link>
-            <Link href={"#"} className={cn(dropdownClasses.item)}>
-              <span>Customization</span>{" "}
-              <span className="text-xs p-1.5 bg-secondary rounded-full px-3 text-muted font-medium">
-                SOON
-              </span>
-            </Link>
+            <div className="flex flex-col gap-px">
+              {Object.values(allItems).map((value, i) => (
+              <Link className={cn("flex items-center hover:bg-secondary rounded-lg transition gap-2 p-3", {
+                "bg-secondary": pathname.slice(1) == value.href
+              })} key={i} href={"/"+value.href}>
+                <span className="size-8 rounded-md bg-secondary border border-secondary-200 flex items-center justify-center"><Icon icon={"solar:"+value.icon+"-outline"} /></span>
+                <span className="font-medium">{value.name}</span>
+              </Link>
+            ))}
+            </div>
           </DrawerBody>
         </Drawer>
         <Dialog>
