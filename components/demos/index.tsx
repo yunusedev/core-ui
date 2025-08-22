@@ -11,4 +11,4 @@ export { default as HeadingDemoConfig, HeadingDemo, HeadingDemoString } from "./
 export { LabelDemo, LabelDemoString } from "./Label";
 export { ParagraphDemo, ParagraphDemoString } from "./Paragraph";
 export { default as SliderDemoConfig, SliderDemo, SliderDemoString } from "./Slider";
-export { TextFieldDemo, TextFieldDemoString } from "./TextField";
+export { default as TextFieldDemoConfig, TextFieldDemo, TextFieldDemoString } from "./TextField";

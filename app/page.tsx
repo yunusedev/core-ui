@@ -21,7 +21,7 @@ export default function Home() {
             performance.
           </Paragraph>
           <div className="flex justify-center">
-            <Link href={"/docs/button"}>
+            <Link href={"/docs/components"}>
               <Button
                 color="foreground"
                 className="w-full lg:w-fit"

@@ -23,7 +23,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
       >
         <Helper.Thumb
           className={cn(
-            "size-4 rounded-full bg-background block transition-all translate-x-1 data-[state=checked]:translate-x-5 shadow-xs",
+            "size-4 rounded-full bg-background dark:bg-foreground block transition-all translate-x-1 data-[state=checked]:translate-x-5 shadow-xs",
             {
               "size-5 data-[state=checked]:translate-x-7": size == "md",
               "size-6 data-[state=checked]:translate-x-7": size == "lg",

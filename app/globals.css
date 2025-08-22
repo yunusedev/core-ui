@@ -3,35 +3,43 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
-  --background: hsla(0,0%,100%);
-  --background-100: hsla(0,0%,99%);
-  --background-200: hsla(0,0%,98%);
-  --background-300: hsla(0,0%,97%);
-  --background-400: hsla(0,0%,96%);
-  --background-500: hsla(0,0%,95%);
-  --foreground: hsla(0,0%,0%);
-  --secondary: hsla(0,0%,95%);
-  --secondary-100: hsla(0,0%,92%);
-  --primary: hsla(216,60%,60%);
-  --primary-100: hsla(216,52%,70%);
-  --muted: hsla(0,0%,40%);
-  --warning: hsla(10, 58%,60%);
+  --background: 0 0% 100%;
+  --background-100: 0 0% 99%;
+  --background-200: 0 0% 98%;
+  --background-300: 0 0% 97%;
+  --background-400: 0 0% 96%;
+  --background-500: 0 0% 95%;
+  --background-600: 0 0% 94%;
+  --background-700: 0 0% 93%;
+  --background-800: 0 0% 92%;
+  --foreground: 0 0% 0%;
+  --secondary: 0 0% 95%;
+  --secondary-100: 0 0% 92%;
+  --secondary-200: 0 0% 89%;
+  --primary: 216 60% 60%;
+  --primary-100: 216 52% 70%;
+  --muted: 0 0% 40%;
+  --warning: 10 58% 60%;
 }
 
 [data-theme="dark"] {
-  --background: hsla(0,0%,0%);
-  --background-100: hsla(0,0%,1%);
-  --background-200: hsla(0,0%,2%);
-  --background-300: hsla(0,0%,3%);
-  --background-400: hsla(0,0%,4%);
-  --background-500: hsla(0,0%,5%);
-  --foreground: hsla(0,0%,100%);
-  --secondary: hsla(0,0%,10%);
-  --secondary-100: hsla(0,0%, 15%);
-  --primary: hsla(216,60%,60%);
-  --primary-100: hsla(216,52%,70%);
-  --muted: hsla(0,0%,60%);
-  --warning: hsla(10, 58%,60%);
+  --background: 0 0% 0%;
+  --background-100: 0 0% 4%;
+  --background-200: 0 0% 4%;
+  --background-300: 0 0% 8%;
+  --background-400: 0 0% 10%;
+  --background-500: 0 0% 12%;
+  --background-600: 0 0% 16%;
+  --background-700: 0 0% 18%;
+  --background-800: 0 0% 20%;
+  --foreground: 0 0% 100%;
+  --secondary: 0 0% 10%;
+  --secondary-100: 0 0% 15%;
+  --secondary-200: 0 0% 20%;
+  --primary: 216 60% 60%;
+  --primary-100: 216 52% 70%;
+  --muted: 0 0% 60%;
+  --warning: 10 58% 60%;
 }
 
 @theme inline {
@@ -45,32 +53,45 @@
   --spacing-container: 6rem;
   --spacing-container-mobile: 1.5rem;
   --spacing-top: 16px;
-  --color-background: var(--background);
-  --color-background-100: var(--background-100);
-  --color-background-200: var(--background-200);
-  --color-background-300: var(--background-300);
-  --color-background-400: var(--background-400);
-  --color-background-500: var(--background-500);
-  --color-foreground: var(--foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-100: var(--secondary-100);
-  --color-primary: var(--primary);
-  --color-primary-100: var(--primary-100);
-  --color-muted: var(--muted);
-  --color-warning: var(--warning);
+  --color-background: hsla(var(--background));
+  --color-background-100: hsla(var(--background-100));
+  --color-background-200: hsla(var(--background-200));
+  --color-background-300: hsla(var(--background-300));
+  --color-background-400: hsla(var(--background-400));
+  --color-background-500: hsla(var(--background-500));
+  --color-background-600: hsla(var(--background-600));
+  --color-background-700: hsla(var(--background-700));
+  --color-background-800: hsla(var(--background-800));
+  --color-foreground: hsla(var(--foreground));
+  --color-secondary: hsla(var(--secondary));
+  --color-secondary-100: hsla(var(--secondary-100));
+  --color-secondary-200: hsla(var(--secondary-200));
+  --color-primary: hsla(var(--primary));
+  --color-primary-100: hsla(var(--primary-100));
+  --color-muted: hsla(var(--muted));
+  --color-warning: hsla(var(--warning));
 }
 
 @layer components {
   .centerBox {
-    @apply px-container-mobile 2xl:px-container
+    @apply px-container-mobile 2xl:px-container;
   }
   .centerBoxMx {
-    @apply mx-container-mobile 2xl:mx-container
+    @apply mx-container-mobile 2xl:mx-container;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-size: 0.938rem;
+}
+
+.line--highlighted {
+  background-color: hsl(var(--secondary-100) / 0.20) !important;
+  padding-top:4px;
+  padding-bottom:4px;
+}
+.word--highlighted {
+  background-color: hsl(var(--secondary-100) / 0.15) !important;
 }

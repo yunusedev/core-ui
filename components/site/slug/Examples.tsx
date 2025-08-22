@@ -12,7 +12,7 @@ export const Examples = ({ displayName }: { displayName: string }) => {
     }[];
   };
   return (
-    <section className="flex flex-col gap-6">
+    <section id="examples" className="flex flex-col gap-6">
       <Heading htype="h3">Examples</Heading>
       {getExamples.examples.map((item, i) => {
         const Component = item.component;

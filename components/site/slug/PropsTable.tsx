@@ -7,7 +7,7 @@ export const PropsTable = ({ displayName }: { displayName: string }) => {
     const getProps = (Props as any)[displayName + "Config"] as { props: {prop: string, type: string, default: any, required: boolean, description: string}[] };
 
   return (
-    <section className="flex flex-col gap-4 mb-6">
+    <section id="api-reference" className="flex flex-col gap-4 mb-6">
       <Heading htype="h3">API Reference</Heading>
       <div className="border rounded-lg border-secondary">
         <table className="w-full table-fixed m-0">
@@ -24,7 +24,7 @@ export const PropsTable = ({ displayName }: { displayName: string }) => {
                     "bg-background-200": i % 2 == 0,
                 })} key={i}>
                     <td className={cn("p-2.5 px-3 text-muted", {"rounded-bl-lg": getProps.props.length == i+1})}>
-                        <span className="flex items-center gap-2">{item.prop} <span className="hover:bg-secondary-100 size-7 flex items-center justify-center transition rounded-md"><Icon icon={"solar:info-circle-outline"} /></span></span>
+                        <span className="flex items-center gap-0">{item.prop} {item.required && <span className="text-warning">*</span>} <span className="hover:bg-secondary-100 ml-2 size-7 flex items-center justify-center transition rounded-md"><Icon icon={"solar:info-circle-outline"} /></span></span>
                     </td>
                     <td className="flex p-2.5 max-h-32 flex flex-wrap items-center gap-1">
                         {item.type.split(" | ").map((item, i) => (

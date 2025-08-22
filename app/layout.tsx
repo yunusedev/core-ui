@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-
+import NextTopLoader from "nextjs-toploader"
 const font = Instrument_Sans({subsets:["latin"]})
 
 export const metadata: Metadata = {
@@ -21,6 +21,7 @@ export default function RootLayout({
         className={`${font.className} antialiased`}
       >
         <ThemeProvider>
+          <NextTopLoader showSpinner={false} />
           {children}
         </ThemeProvider>
       </body>

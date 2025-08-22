@@ -4,9 +4,9 @@ import { cn } from "../libs/utils";
 
 export const DialogClasses = {
   overlay:
-    "fixed inset-0 bg-foreground/60 dark:bg-background/60 data-[state=open]:fade-in-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 animate-in",
+    "fixed inset-0 bg-foreground/60 z-[99] dark:bg-background/60 data-[state=open]:fade-in-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 animate-in",
   content: [
-    "fixed border border-secondary overflow-hidden left-1/2 top-1/2 p-8 flex flex-col gap-6 rounded-lg bg-background-100 max-h-[85vh] min-w-[80vw] max-w-[90vw] lg:min-w-[300px] lg:max-w-xl outline-none -translate-x-1/2 -translate-y-1/2 bg-background",
+    "z-[100] fixed border border-secondary overflow-hidden left-1/2 top-1/2 p-8 flex flex-col gap-6 rounded-lg bg-background-100 max-h-[85vh] min-w-[80vw] max-w-[90vw] lg:min-w-[300px] lg:max-w-xl outline-none -translate-x-1/2 -translate-y-1/2 bg-background",
     "data-[state=open]:animate-in data-[state=open]:fade-in-100 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-from-bottom-2",
   ],
   header: "space-y-2 flex flex-col items-center lg:items-start",

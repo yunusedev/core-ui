@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Getting Started",
+    "icon":"mention-circle",
+    "href": "docs/introduction",
+    "items": [
+      {
+        "name": "Introduction",
+        "href": "introduction"
+      }
+    ]
+  },
+  {
+    "name": "Theming",
+    "icon":"tuning-2",
+    "href": "docs/theming",
+    "items": [
+        {
+            "name":"Theming",
+            "href":"theming"
+        }
+    ]
+  },
+  {
+    "name": "Components",
+    "icon": "widget-3",
+    "href": "docs/components",
+    "items": [
+      {
+        "name": "All Components",
+        "href": "components"
+      },
+      {
+        "name": "Alert Dialog",
+        "href": "alertdialog"
+      },
+      {
+        "name": "Avatar",
+        "href": "avatar"
+      },
+      {
+        "name": "Button",
+        "href": "button"
+      },
+      {
+        "name": "Card",
+        "href": "card"
+      },
+      {
+        "name": "Dialog",
+        "href": "dialog"
+      },
+      {
+        "name": "Drawer",
+        "href": "drawer"
+      },
+      {
+        "name": "Dropdown",
+        "href": "dropdown"
+      },
+      {
+        "name": "Heading",
+        "href": "heading"
+      },
+      {
+        "name": "Label",
+        "href": "label"
+      },
+      {
+        "name": "Paragraph",
+        "href": "paragraph"
+      },
+      {
+        "name": "Slider",
+        "href": "slider"
+      },
+      {
+        "name": "Spinner",
+        "href": "spinner"
+      },
+      {
+        "name": "Switch",
+        "href": "switch"
+      },
+      {
+        "name": "Text",
+        "href": "text"
+      },
+      {
+        "name": "Text Field",
+        "href": "textfield"
+      }
+    ]
+  }
+]
