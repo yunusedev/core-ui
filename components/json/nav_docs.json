@@ -1,24 +1,32 @@
 [
   {
     "name": "Getting Started",
-    "icon":"mention-circle",
+    "icon": "mention-circle",
     "href": "docs/introduction",
     "items": [
       {
         "name": "Introduction",
         "href": "introduction"
+      },
+      {
+        "name": "Changelog",
+        "href": "changelog"
+      },
+      {
+        "name": "Installation",
+        "href": "installation"
       }
     ]
   },
   {
     "name": "Theming",
-    "icon":"tuning-2",
+    "icon": "tuning-2",
     "href": "docs/theming",
     "items": [
-        {
-            "name":"Theming",
-            "href":"theming"
-        }
+      {
+        "name": "Theming",
+        "href": "theming"
+      }
     ]
   },
   {
@@ -45,6 +53,11 @@
       {
         "name": "Card",
         "href": "card"
+      },
+      {
+        "name": "Collapsible",
+        "href": "collapsible",
+        "new":true
       },
       {
         "name": "Dialog",
@@ -83,8 +96,23 @@
         "href": "switch"
       },
       {
+        "name": "Separator",
+        "href": "separator",
+        "new": true
+      },
+      {
         "name": "Text",
         "href": "text"
+      },
+      {
+        "name": "Tabs",
+        "href": "tabs",
+        "new":true
+      },
+      {
+        "name": "Tooltip",
+        "href": "tooltip",
+        "new": true
       },
       {
         "name": "Text Field",

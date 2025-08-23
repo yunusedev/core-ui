@@ -12,3 +12,7 @@ export { LabelDemo, LabelDemoString } from "./Label";
 export { ParagraphDemo, ParagraphDemoString } from "./Paragraph";
 export { default as SliderDemoConfig, SliderDemo, SliderDemoString } from "./Slider";
 export { default as TextFieldDemoConfig, TextFieldDemo, TextFieldDemoString } from "./TextField";
+export { default as TooltipDemoConfig, TooltipDemo, TooltipDemoString } from "./Tooltip";
+export { default as SeparatorDemoConfig, SeparatorDemo, SeparatorDemoString } from "./Separator";
+export { default as TabsDemoConfig, TabsDemo, TabsDemoString } from "./Tabs";
+export { default as CollapsibleDemoConfCollapsibleDemoDeCollapsibleDemoDemoString } from "./Collapsible";

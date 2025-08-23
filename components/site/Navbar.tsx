@@ -7,9 +7,9 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useState } from "react";
 
 export const Navbar = ({ children }: { children: React.ReactNode }) => {
-  const [getItems, setGetItems] = useState<{ name: string; href: string }[]>(
-    []
-  );
+  const [getItems, setGetItems] = useState<
+    { name: string; href: string; new: boolean | null | undefined }[]
+  >([]);
   const pathname = usePathname();
   const getAllItems = () => {
     const getIsAny = allItems.find((item) => {
@@ -17,14 +17,14 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       return pathname.slice(1).includes(item.href) || get;
     });
     if (!getIsAny) return;
-    setGetItems(getIsAny?.items);
+    setGetItems(getIsAny?.items as any);
   };
   useEffect(() => {
     getAllItems();
   }, []);
   return (
     <>
-      <nav className="centerBoxMx hidden lg:flex pt-top flex flex-col overflow-y-auto max-h-[85vh] fixed gap-6 w-80">
+      <nav className="centerBoxMx hidden lg:flex pt-top flex flex-col overflow-y-auto max-h-[90vh] fixed gap-6 w-80">
         <div className="flex flex-col gap-px">
           {allItems.map((item, i) => (
             <Link
@@ -61,16 +61,21 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
           {getItems.map((item, i) => (
             <Link
               className={cn(
-                "p-2 px-3 text-muted hover:bg-secondary font-medium hover:text-foreground rounded-lg transition",
+                "p-2 px-3 text-muted flex items-center gap-3 hover:bg-secondary font-medium hover:text-foreground rounded-lg transition",
                 {
-                  "bg-secondary text-foregound": pathname
-                    .slice(1) == ("docs/"+item.href),
+                  "bg-secondary text-foregound":
+                    pathname.slice(1) == "docs/" + item.href,
                 }
               )}
               href={item.href}
               key={i}
             >
               <span>{item.name}</span>
+              {item.new == true && (
+                <span className="p-1 px-2 rounded-lg bg-primary/15 text-xs text-muted font-medium">
+                  NEW
+                </span>
+              )}
             </Link>
           ))}
         </div>
