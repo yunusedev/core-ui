@@ -1,20 +1,43 @@
-import * as Helper from "@radix-ui/react-tooltip"
+import * as Helper from "@radix-ui/react-tooltip";
 import React from "react";
 import { cn } from "../libs/utils";
-export const TooltipProvider = Helper.Provider;
-export const Tooltip = Helper.Tooltip;
-export const TooltipTrigger = Helper.Trigger;
-export const TooltipBody = React.forwardRef<HTMLDivElement, React.ComponentPropsWithRef<typeof Helper.Content>>(
-    ({className, children, ...props}, ref) => {
+import {useMediaQuery} from "react-responsive"
+import { Drawer, DrawerBody, DrawerTitle, DrawerTrigger } from "./Drawer";
+export const Tooltip = React.forwardRef<HTMLDivElement, {
+children: React.ReactNode;
+content: React.ReactNode | string;
+className?:string;
+}>(
+    ({children, className, content}, ref) => {
+        const isMobile = useMediaQuery({query: "(max-width:1025px)"})
         return(
-            <Helper.Portal>
-                <Helper.Content className={cn("bg-background-100 p-2 rounded-md border border-secondary-100", "animate-in data-[state=delayed-open]:fade-in-95 data-[state=delayed-open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=closed]:fade-out-0 data-[state=instant-open]:zoom-in-95 data-[state=instant-open]:fade-in-95 data-[side=top]:slide-in-from-bottom-1 data-[side=bottom]:slide-in-from-top-1 data-[side=right]:slide-in-from-left-1 data-[side=left]:slide-in-from-right-1", className)} ref={ref} {...props}>
-                    {children}
-                    <Helper.Arrow className="fill-secondary-200" />
-                </Helper.Content>
-            </Helper.Portal>
+            <>
+            {isMobile ? (
+                <Drawer>
+                    <DrawerTrigger asChild>{children}</DrawerTrigger>
+                    <DrawerBody>
+                        <DrawerTitle className="hidden" />
+                        <span className="text-muted">{content}</span>
+                    </DrawerBody>
+                </Drawer>
+            ) : (
+                <Helper.Provider>
+                <Helper.Tooltip>
+                    <Helper.Trigger asChild>
+                        {children}
+                    </Helper.Trigger>
+                    <Helper.Portal>
+                        <Helper.Content className={cn("p-2 px-3 animate-in data-[state=delayed-open]:zoom-in-95 data-[state=delayed-open]:fade-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=closed]:fade-out-0 border border-secondary rounded-md text-muted", className)}>
+                            {content}
+                            <Helper.Arrow className="fill-secondary-100" />
+                        </Helper.Content>
+                    </Helper.Portal>
+                </Helper.Tooltip>
+            </Helper.Provider>
+            )}
+            </>
         )
-    }
+    } 
 )
 
-TooltipBody.displayName = "CoreUITooltipBody"
+Tooltip.displayName = "CoreUITooltip"
