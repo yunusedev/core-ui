@@ -77,7 +77,6 @@ export const Header = () => {
             <Button
               color="secondary"
               className="flex lg:hidden"
-              size="sm"
               isIconOnly
             >
               <Icon className="text-lg" icon={"solar:hamburger-menu-outline"} />
