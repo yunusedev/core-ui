@@ -43,6 +43,11 @@
         "href": "components"
       },
       {
+        "name": "Accordion",
+        "href": "accordion",
+        "new": true
+      },
+      {
         "name": "Alert Dialog",
         "href": "alertdialog"
       },

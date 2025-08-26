@@ -1,3 +1,4 @@
+import { AccordionDemo } from "@/components/demos/Accordion";
 import { CheckboxDemo } from "@/components/demos/Checkbox";
 import { CollapsibleDemo } from "@/components/demos/Collapsible";
 import { SeparatorDemo } from "@/components/demos/Separator";
@@ -11,7 +12,7 @@ import { Tooltip, TooltipBody, TooltipProvider, TooltipTrigger } from "@/compone
 export default function Page() {
     return(
         <div className="flex h-screen w-full items-center justify-center">
-           <CheckboxDemo />
+           <AccordionDemo />
         </div>
     )
 }
