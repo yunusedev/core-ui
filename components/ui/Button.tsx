@@ -6,7 +6,7 @@ export interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
   isIconOnly?: boolean;
   variant?: "outline" | "ghost" | "solid";
   size?: "sm" | "md" | "lg";
-  radius?: "sm"|"md"|"lg"|"xl"|"2xl"|"full"
+  radius?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
 }
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -36,10 +36,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         foreground: "hover:bg-foreground hover:text-background",
       },
       outline: {
-        primary: "bg-primary text-background hover:brightness-95",
-        secondary: "bg-secondary text-muted hover:bg-secondary-100",
-        danger: "bg-warning text-background",
-        foreground: "bg-foreground text-background hover:bg-foreground/80",
+        primary: "border border-primary text-background hover:brightness-95",
+        secondary:
+          "border border-secondary text-foreground hover:bg-secondary-100",
+        danger: "border border-warning text-background",
+        foreground:
+          "border border-foreground text-background hover:bg-foreground/80",
       },
     };
     const sizeClasses = {
@@ -49,9 +51,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         lg: "p-3 text-[16px] px-5",
       },
       isIconOnly: {
-        sm: "size-10 text-[15px] p-0 px-0",
-        md: "size-12 p-0 px-0",
-        lg: "size-14 text-lg p-0 px-0",
+        sm: "size-8 text-[15px] rounded-md p-0 px-0",
+        md: "size-10 p-0 px-0",
+        lg: "size-12 text-lg p-0 px-0",
       },
     };
     const radiusClasses = {
@@ -61,14 +63,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       xl: "rounded-xl",
       "2xl": "rounded-2xl",
       full: "rounded-full",
-    }
+    };
     return (
       <button
         className={cn(
           "rounded-lg flex justify-center items-center gap-2 w-fit outline-none cursor-pointer font-semibold disabled:opacity-50 transition-all",
           colorClasses[variant][color],
-          sizeClasses[`${isIconOnly ? "isIconOnly" : "normal"}`][size],
           radiusClasses[radius as keyof typeof radiusClasses],
+          sizeClasses[`${isIconOnly ? "isIconOnly" : "normal"}`][size],
           className
         )}
         ref={ref}

@@ -2,13 +2,14 @@ import * as Demos from "@/components/demos/";
 import { cn } from "@/components/libs/utils";
 import { Heading } from "@/components/ui/Heading";
 import { Paragraph } from "@/components/ui/Paragraph";
+import { PreviewDemo } from "./PreviewDemo";
 export const Examples = ({ displayName }: { displayName: string }) => {
   const getExamples = (Demos as any)[displayName + "Config"] as {
     examples: {
       title: string;
       description: string;
       component: React.ElementType;
-      import: string;
+      componentString: string;
     }[];
   };
   return (
@@ -22,9 +23,9 @@ export const Examples = ({ displayName }: { displayName: string }) => {
           })} key={i}>
             <Heading htype="h4">{item.title}</Heading>
             <Paragraph>{item.description}</Paragraph>
-            <div className="w-full h-96 px-2 rounded-lg flex items-center justify-center border border-secondary">
+            <PreviewDemo fileContent={item.componentString}>
               <Component />
-            </div>
+            </PreviewDemo>
           </div>
         );
       })}

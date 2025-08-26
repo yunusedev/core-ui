@@ -58,6 +58,9 @@ export default {
       component: () => (
         <TextField className="w-80" label="Full Name" placeholder="Full Name" />
       ),
+      componentString: `() => (
+        <TextField className="w-80" label="Full Name" placeholder="Full Name" />
+      ),`
     },
     {
       title: "With Label And Description",
@@ -70,6 +73,14 @@ export default {
           placeholder="Full Name"
         />
       ),
+      componentString: `() => (
+        <TextField
+          className="w-80"
+          description="Enter your full name"
+          label="Full Name"
+          placeholder="Full Name"
+        />
+      ),`
     },
     {
       title: "Error Text Field",
@@ -89,6 +100,21 @@ export default {
           />
         );
       },
+      componentString: `() => {
+        const [value, setValue] = useState<string>("");
+        return (
+          <TextField
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            errorLabel={value.length > 10 ? "Error Text" : null}
+            errorDescription={value.length > 10 ? "Error description" : null}
+            className="w-80"
+            description="Length > 10 = error"
+            label="Full Name"
+            placeholder="Full Name"
+          />
+        );
+      },`
     },
   ],
 };

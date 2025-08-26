@@ -1,8 +1,8 @@
 import { Separator } from "../ui/Separator"
 
-export const SeparatorDemo = () => {
+export const SeparatorDemo = ({width = "300px"}: {width?:string}) => {
     return(
-        <div className="flex flex-col gap-2 w-[300px]">
+        <div style={{width: width}} className="flex flex-col gap-2">
         <div className="flex flex-col gap-1">
             <span className="font-medium">Radix Primitives</span>
             <span className="text-muted text-sm">An open-source UI component library</span>

@@ -71,7 +71,7 @@ export const Header = () => {
           ))}
         </nav>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1.5">
         <Drawer>
           <DrawerTrigger>
             <Button
@@ -99,7 +99,7 @@ export const Header = () => {
         </Drawer>
         <Dialog>
           <DialogTrigger>
-            <Button isIconOnly color="secondary" size="sm">
+            <Button isIconOnly color="secondary">
               <Icon icon={"solar:magnifer-outline"} />
             </Button>
           </DialogTrigger>
@@ -152,8 +152,8 @@ export const Header = () => {
             </footer>
           </DialogBody>
         </Dialog>
-        <Link className="hidden lg:flex" href={"https://github.com/yunusedev"}>
-          <Button color="secondary" isIconOnly size="sm">
+        <Link target="_blank" className="hidden lg:flex" href={"https://github.com/yunusedev"}>
+          <Button color="secondary" isIconOnly>
             <Icon
               className="text-base dark:invert"
               icon={"logos:github-icon"}
@@ -165,7 +165,6 @@ export const Header = () => {
           color="secondary"
           className="hidden lg:flex items-center justify-center flex"
           isIconOnly
-          size="sm"
         >
           <Icon
             className="text-base"

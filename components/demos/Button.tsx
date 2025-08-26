@@ -62,6 +62,14 @@ export default {
           <Button color="foreground">foreground</Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button color="primary">primary</Button>
+          <Button color="secondary">secondary</Button>
+          <Button color="danger">danger</Button>
+          <Button color="foreground">foreground</Button>
+        </div>
+      ),`
     },
     {
       title: "Variants",
@@ -77,6 +85,17 @@ export default {
           </Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button color="secondary">Solid</Button>
+          <Button color="secondary" variant="outline">
+            Outline
+          </Button>
+          <Button color="secondary" variant="ghost">
+            Ghost
+          </Button>
+        </div>
+      ),`
     },
     {
       title: "Radius",
@@ -103,6 +122,28 @@ export default {
           </Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button color="secondary" radius="sm">
+            radius sm
+          </Button>
+          <Button color="secondary" radius="md">
+            radius md
+          </Button>
+          <Button color="secondary" radius="lg">
+            radius lg
+          </Button>
+          <Button color="secondary" radius="xl">
+            radius xl
+          </Button>
+          <Button color="secondary" radius="2xl">
+            radius 2xl
+          </Button>
+          <Button color="secondary" radius="full">
+            radius full
+          </Button>
+        </div>
+      ),`
     },
     {
       title: "With Icon",
@@ -115,6 +156,14 @@ export default {
           </Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button>
+            <PlusIcon />
+            Add Tab
+          </Button>
+        </div>
+      ),`
     },
     {
       title: "Only Icon",
@@ -126,6 +175,13 @@ export default {
           </Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button isIconOnly>
+            <PlusIcon />
+          </Button>
+        </div>
+      ),`
     },
     {
       title: "Loading",
@@ -138,6 +194,14 @@ export default {
           </Button>
         </div>
       ),
+      componentString: `() => (
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <Button disabled>
+            <Spinner size="sm" />
+            Loading...
+          </Button>
+        </div>
+      ),`
     },
   ],
 };

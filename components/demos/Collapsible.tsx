@@ -7,7 +7,7 @@ import { Cross2Icon, RowSpacingIcon } from "@radix-ui/react-icons";
 export const CollapsibleDemo = () => {
   const [open, setOpen] = useState<boolean>(false);
   return (
-    <Collapsible className="w-[300px] flex flex-col gap-2" open={open} onOpenChange={setOpen}>
+    <Collapsible className="w-full flex flex-col gap-2" open={open} onOpenChange={setOpen}>
       <div className="flex items-center justify-between">
         <span className="text-muted">@pedruarte starred 3 repositories</span>
         <CollapsibleTrigger asChild>

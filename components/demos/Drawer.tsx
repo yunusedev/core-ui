@@ -78,7 +78,37 @@ export default {
                     </DrawerFooter>
                 </DrawerBody>
                 </Drawer>
-            )
+            ),
+            componentString: `() => (
+                <Drawer>
+                <DrawerTrigger>
+                    <Button>Click Me</Button>
+                </DrawerTrigger>
+                <DrawerBody>
+                    <DrawerHeader>
+                        <DrawerTitle className="text-center">Nested Drawers</DrawerTitle>
+                        <DrawerDescription className="text-center">For nested drawers, click the button</DrawerDescription>
+                    </DrawerHeader>
+                    <DrawerFooter>
+                       <NestedDrawer>
+                        <DrawerTrigger>
+                             <Button className="w-full">Click Me</Button>
+                        </DrawerTrigger>
+                        <DrawerBody>
+                            <DrawerHeader>
+                                <DrawerTitle className="text-center">Are you absolutely sure?</DrawerTitle>
+                                <DrawerDescription className="text-center"> This action cannot be undone. This will permanently delete your account and remove your data from our servers.</DrawerDescription>
+                            </DrawerHeader>
+                            <DrawerFooter>
+                                <DrawerClose><Button className="w-full" color="secondary" variant="ghost">Cancel</Button></DrawerClose>
+                                <DrawerClose><Button className="w-full" color="foreground" variant="solid">Confirm</Button></DrawerClose>
+                            </DrawerFooter>
+                        </DrawerBody>
+                       </NestedDrawer>
+                    </DrawerFooter>
+                </DrawerBody>
+                </Drawer>
+            )`
         }
     ]
 }

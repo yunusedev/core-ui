@@ -15,4 +15,7 @@ export { default as TextFieldDemoConfig, TextFieldDemo, TextFieldDemoString } fr
 export { default as TooltipDemoConfig, TooltipDemo, TooltipDemoString } from "./Tooltip";
 export { default as SeparatorDemoConfig, SeparatorDemo, SeparatorDemoString } from "./Separator";
 export { default as TabsDemoConfig, TabsDemo, TabsDemoString } from "./Tabs";
+export { default as ToggleDemoConfig, ToggleDemo, ToggleDemoString } from "./Toggle";
+export { default as ToggleGroupDemoConfig, ToggleGroupDemo, ToggleGroupDemoString } from "./ToggleGroup";
+export { default as CheckboxDemoConfig, CheckboxDemo, CheckboxDemoString } from "./Checkbox";
 export { default as CollapsibleDemoConfCollapsibleDemoDeCollapsibleDemoDemoString } from "./Collapsible";

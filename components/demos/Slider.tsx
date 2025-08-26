@@ -25,7 +25,14 @@ export default {
                 step={1}
                 max={100}
                 />
-            )
+            ),
+            componentString: `() => (
+                <Slider
+                defaultValue={[10, 50]}
+                step={1}
+                max={100}
+                />
+            )`
         }
     ]
 }
