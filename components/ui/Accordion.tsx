@@ -7,7 +7,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 const Accordion = React.forwardRef<HTMLDivElement, React.ComponentPropsWithRef<typeof Helper.Root>>(
     ({className, ...props}, forwardedRef) => {
         return(
-            <Helper.Root className={cn("w-[400px] flex flex-col gap-2", className)} ref={forwardedRef} {...props} />
+            <Helper.Root className={cn("w-full flex flex-col gap-2", className)} ref={forwardedRef} {...props} />
         )
     }
 )
