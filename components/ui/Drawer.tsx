@@ -21,7 +21,7 @@ export const DrawerBody = React.forwardRef<
     <Vaul.Portal>
       <Vaul.Overlay className="z-[99] fixed inset-0 bg-foreground/40 dark:bg-background/60" />
       <Vaul.Content
-        className="z-[100] dark:border dark:border-secondary bg-background rounded-lg after:hidden fixed bottom-2 left-2 right-2 outline-none"
+        className="z-[100] overflow-auto max-h-screen dark:border dark:border-secondary bg-background rounded-lg after:hidden fixed bottom-2 left-2 right-2 outline-none"
         ref={ref}
         {...props}
       >

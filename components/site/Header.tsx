@@ -13,6 +13,7 @@ import { Dialog, DialogBody, DialogTitle, DialogTrigger } from "../ui/Dialog";
 import { allDocs, Docs } from "@/.contentlayer/generated";
 import allItems from "@/components/json/nav_docs.json"
 import { usePathname } from "next/navigation";
+import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "../ui/Accordion";
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
@@ -84,14 +85,30 @@ export const Header = () => {
           </DrawerTrigger>
           <DrawerBody>
             <DrawerTitle />
-            <div className="flex flex-col gap-px">
+            <div className="flex flex-col gap-2">
               {Object.values(allItems).map((value, i) => (
-              <Link className={cn("flex items-center hover:bg-secondary rounded-lg transition gap-2 p-3", {
-                "bg-secondary": pathname.slice(1) == value.href
-              })} key={i} href={"/"+value.href}>
+              <Accordion type="multiple" className="w-full" key={i}>
+                <AccordionItem value={i.toString()}>
+                  <AccordionTrigger>
+                  <p className={cn("flex items-center rounded-lg transition gap-2 p-1")} key={i}>
                 <span className="size-8 rounded-md bg-secondary border border-secondary-200 flex items-center justify-center"><Icon icon={"solar:"+value.icon+"-outline"} /></span>
                 <span className="font-medium">{value.name}</span>
-              </Link>
+              </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-col gap-0 w-full">
+                    {value.items.map((item, i) => (
+                      <Link className="w-full flex justify-between items-center hover:bg-secondary transition rounded-lg p-3" key={i} href={item.href}>
+                        <span className="text-foreground font-medium">{item.name}</span>
+                        {item.new == true && (
+                          <span className="p-1.5 px-2 text-xs text-muted bg-primary/15 rounded-full">NEW</span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             ))}
             </div>
           </DrawerBody>
