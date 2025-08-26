@@ -98,7 +98,7 @@ export const Header = () => {
                 <AccordionContent className="overflow-auto">
                   <div className="flex flex-col gap-0 w-full">
                     {value.items.map((item, i) => (
-                      <Link className="w-full flex justify-between items-center hover:bg-secondary transition rounded-lg p-3" key={i} href={item.href}>
+                      <Link className="w-full flex justify-between items-center hover:bg-secondary transition rounded-lg p-3" key={i} href={"/docs/"+item.href}>
                         <span className="text-foreground font-medium">{item.name}</span>
                         {item.new == true && (
                           <span className="p-1.5 px-2 text-xs text-muted bg-primary/15 rounded-full">NEW</span>
