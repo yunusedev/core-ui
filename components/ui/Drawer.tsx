@@ -36,7 +36,7 @@ export const DrawerHeader = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithRef<"header">
 >(({ className, ...props }, ref) => {
-  return <header className={cn("space-y-2", className)} ref={ref} {...props} />;
+  return <header className={cn("flex flex-col gap-2 items-center text-center", className)} ref={ref} {...props} />;
 });
 export const DrawerTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -68,7 +68,7 @@ export const DrawerFooter = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   return (
     <footer
-      className={cn("flex flex-col gap-2 my-8 mb-4", className)}
+      className={cn("flex flex-col gap-2 my-4", className)}
       ref={ref}
       {...props}
     >
