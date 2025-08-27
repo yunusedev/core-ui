@@ -150,7 +150,7 @@ export const Header = () => {
             </Button>
           </DialogTrigger>
           <DialogTitle className="hidden" />
-          <DialogBody key={results.length} className="lg:w-lg p-0 px-0 gap-0">
+          <DialogBody className="lg:w-lg p-0 px-0 gap-0">
             <DialogHeader className="flex flex-row p-2.5 pb-0 gap-3">
               <div className="flex items-center gap-2 w-full">
                 <Icon icon={"solar:magnifer-outline"} />
@@ -164,7 +164,7 @@ export const Header = () => {
               </div>
             </DialogHeader>
             <Separator orientation="horizontal" className="my-2.5" />
-              <DialogSection className="flex w-full max-h-[80vh] items-center justify-center flex-col p-2">
+              <DialogSection className="flex w-full overflow-auto items-center justify-center flex-col p-2">
                 {results.length ? (
                 results.map((item, i) => (
                     <Link
