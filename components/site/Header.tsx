@@ -72,7 +72,7 @@ export const Header = () => {
           ))}
         </nav>
       </div>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-2">
         <Drawer>
           <DrawerTrigger>
             <Button
@@ -132,7 +132,7 @@ export const Header = () => {
               />
             </header>
             <div className="h-px w-full my-2.5 bg-secondary" />
-            <section className="flex flex-col gap-0 p-2.5">
+            <section className="flex overflow-auto flex-col gap-0 p-2.5">
               {results.length ? (
                 results.map((item, i) => (
                   <Link
