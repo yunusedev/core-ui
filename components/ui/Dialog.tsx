@@ -126,7 +126,7 @@ export const DialogSection = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
   return isMobile ? (
-    <VaulDrawerSection ref={ref} {...props} />
+    <VaulDrawerSection className={cn(className)} ref={ref} {...props} />
   ) : (
     <section
       className={cn(DialogClasses.header, className)}

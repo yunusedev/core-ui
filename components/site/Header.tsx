@@ -18,6 +18,7 @@ import { useTheme } from "next-themes";
 import {
   Dialog,
   DialogBody,
+  DialogHeader,
   DialogSection,
   DialogTitle,
   DialogTrigger,
@@ -149,9 +150,10 @@ export const Header = () => {
             </Button>
           </DialogTrigger>
           <DialogTitle className="hidden" />
-          <DialogBody className="p-0 px-0 gap-0">
-            <DrawerHeader className="flex flex-row p-2.5 pb-0 items-center justify-center gap-3">
-              <Icon icon={"solar:magnifer-outline"} />
+          <DialogBody className="lg:w-lg p-0 px-0 gap-0">
+            <DialogHeader className="flex flex-row p-2.5 pb-0 gap-3">
+              <div className="flex items-center gap-2 w-full">
+                <Icon icon={"solar:magnifer-outline"} />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -159,14 +161,15 @@ export const Header = () => {
                 type="text"
                 placeholder="Enter text..."
               />
-            </DrawerHeader>
+              </div>
+            </DialogHeader>
             <Separator orientation="horizontal" className="my-2.5" />
-            <ul className="flex flex-col gap-0 p-0">
-              {results.length ? (
+              <DialogSection className="flex w-full items-center justify-center flex-col p-2">
+                {results.length ? (
                 results.map((item, i) => (
-                  <li key={i}>
                     <Link
-                      className="p-5 hover:bg-secondary group flex items-center justify-between rounded-lg transition-all"
+                    key={i}
+                      className="p-5 w-full hover:bg-secondary group flex items-center justify-between rounded-lg transition-all"
                       href={"/docs/" + item._raw.flattenedPath.split("/")[1]}
                     >
                       <div className="flex items-center gap-3">
@@ -186,12 +189,11 @@ export const Header = () => {
                         <Icon icon={"solar:alt-arrow-right-outline"} />
                       </div>
                     </Link>
-                  </li>
                 ))
               ) : (
                 <p className="text-center text-muted">Not results found.</p>
               )}
-            </ul>
+              </DialogSection>
             <div className="h-px w-full my-2.5 bg-secondary" />
             <footer className="p-2.5 flex justify-end text-muted text-sm">
               yunusedev &copy; 2025
