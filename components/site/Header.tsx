@@ -132,7 +132,7 @@ export const Header = () => {
               />
             </header>
             <div className="h-px w-full my-2.5 bg-secondary" />
-            <section className="flex flex-col gap-0 p-2.5">
+            <section className="flex flex-col max-h-[70vh] overflow-auto gap-0 p-2.5">
               {results.length ? (
                 results.map((item, i) => (
                   <Link
