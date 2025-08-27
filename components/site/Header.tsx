@@ -164,7 +164,7 @@ export const Header = () => {
               </div>
             </DialogHeader>
             <Separator orientation="horizontal" className="my-2.5" />
-              <DialogSection className="flex w-full items-center justify-center flex-col p-2">
+              <DialogSection className="flex w-full max-h-[80vh] items-center justify-center flex-col p-2">
                 {results.length ? (
                 results.map((item, i) => (
                     <Link
