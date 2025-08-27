@@ -4,16 +4,34 @@ import { Heading } from "../ui/Heading";
 import nav from "@/components/json/nav_homepage.json";
 import Link from "next/link";
 import { Button } from "../ui/Button";
-import { Drawer, DrawerBody, DrawerTitle, DrawerTrigger } from "../ui/Drawer";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../ui/Drawer";
 import { cn } from "../libs/utils";
 import { dropdownClasses } from "../ui/Dropdown";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { Dialog, DialogBody, DialogTitle, DialogTrigger } from "../ui/Dialog";
+import {
+  Dialog,
+  DialogBody,
+  DialogSection,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/Dialog";
 import { allDocs, Docs } from "@/.contentlayer/generated";
-import allItems from "@/components/json/nav_docs.json"
+import allItems from "@/components/json/nav_docs.json";
 import { usePathname } from "next/navigation";
-import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "../ui/Accordion";
+import {
+  Accordion,
+  AccordionTrigger,
+  AccordionItem,
+  AccordionContent,
+} from "../ui/Accordion";
+import { Separator } from "../ui/Separator";
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
@@ -75,11 +93,7 @@ export const Header = () => {
       <div className="flex items-center gap-2">
         <Drawer>
           <DrawerTrigger>
-            <Button
-              color="secondary"
-              className="flex lg:hidden"
-              isIconOnly
-            >
+            <Button color="secondary" className="flex lg:hidden" isIconOnly>
               <Icon className="text-lg" icon={"solar:hamburger-menu-outline"} />
             </Button>
           </DrawerTrigger>
@@ -87,29 +101,44 @@ export const Header = () => {
             <DrawerTitle />
             <div className="flex flex-col gap-2">
               {Object.values(allItems).map((value, i) => (
-              <Accordion type="multiple" className="w-full" key={i}>
-                <AccordionItem value={i.toString()}>
-                  <AccordionTrigger>
-                  <p className={cn("flex items-center rounded-lg transition gap-2 p-1")} key={i}>
-                <span className="size-8 rounded-md bg-secondary border border-secondary-200 flex items-center justify-center"><Icon icon={"solar:"+value.icon+"-outline"} /></span>
-                <span className="font-medium">{value.name}</span>
-              </p>
-                </AccordionTrigger>
-                <AccordionContent className="overflow-auto">
-                  <div className="flex flex-col gap-0 w-full">
-                    {value.items.map((item, i) => (
-                      <Link className="w-full flex justify-between items-center hover:bg-secondary transition rounded-lg p-3" key={i} href={"/docs/"+item.href}>
-                        <span className="text-foreground font-medium">{item.name}</span>
-                        {item.new == true && (
-                          <span className="p-1.5 px-2 text-xs text-muted bg-primary/15 rounded-full">NEW</span>
+                <Accordion type="multiple" className="w-full" key={i}>
+                  <AccordionItem value={i.toString()}>
+                    <AccordionTrigger>
+                      <p
+                        className={cn(
+                          "flex items-center rounded-lg transition gap-2 p-1"
                         )}
-                      </Link>
-                    ))}
-                  </div>
-                </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            ))}
+                        key={i}
+                      >
+                        <span className="size-8 rounded-md bg-secondary border border-secondary-200 flex items-center justify-center">
+                          <Icon icon={"solar:" + value.icon + "-outline"} />
+                        </span>
+                        <span className="font-medium">{value.name}</span>
+                      </p>
+                    </AccordionTrigger>
+                    <AccordionContent className="overflow-auto">
+                      <div className="flex flex-col gap-0 w-full">
+                        {value.items.map((item, i) => (
+                          <Link
+                            className="w-full flex justify-between items-center hover:bg-secondary transition rounded-lg p-3"
+                            key={i}
+                            href={"/docs/" + item.href}
+                          >
+                            <span className="text-foreground font-medium">
+                              {item.name}
+                            </span>
+                            {item.new == true && (
+                              <span className="p-1.5 px-2 text-xs text-muted bg-primary/15 rounded-full">
+                                NEW
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ))}
             </div>
           </DrawerBody>
         </Drawer>
@@ -121,7 +150,7 @@ export const Header = () => {
           </DialogTrigger>
           <DialogTitle className="hidden" />
           <DialogBody className="p-0 px-0 gap-0">
-            <header className="flex p-2.5 pb-0 items-center justify-center gap-3">
+            <DrawerHeader className="flex flex-row p-2.5 pb-0 items-center justify-center gap-3">
               <Icon icon={"solar:magnifer-outline"} />
               <input
                 value={search}
@@ -130,45 +159,50 @@ export const Header = () => {
                 type="text"
                 placeholder="Enter text..."
               />
-            </header>
-            <div className="h-px w-full my-2.5 bg-secondary" />
-            <section className="flex flex-col gap-0 p-2.5">
+            </DrawerHeader>
+            <Separator orientation="horizontal" className="my-2.5" />
+            <ul className="flex flex-col gap-0 p-0">
               {results.length ? (
                 results.map((item, i) => (
-                  <Link
-                    className="p-5 hover:bg-secondary group flex items-center justify-between rounded-lg transition-all"
-                    key={i}
-                    href={"/docs/" + item._raw.flattenedPath.split("/")[1]}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="size-10 rounded-lg text-muted group-hover:bg-secondary-200 transition items-center bg-secondary justify-center flex">
-                        <Icon icon={"solar:file-outline"} />
-                      </span>
-                      <div className="flex flex-col leading-none gap-1">
-                        <span className="font-medium text-foreground">
-                          {item.title}
+                  <li key={i}>
+                    <Link
+                      className="p-5 hover:bg-secondary group flex items-center justify-between rounded-lg transition-all"
+                      href={"/docs/" + item._raw.flattenedPath.split("/")[1]}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="size-10 rounded-lg text-muted group-hover:bg-secondary-200 transition items-center bg-secondary justify-center flex">
+                          <Icon icon={"solar:file-outline"} />
                         </span>
-                        <span className="text-muted text-sm">
-                          {item.description.slice(0, 40)}...
-                        </span>
+                        <div className="flex flex-col leading-none gap-1">
+                          <span className="font-medium text-foreground">
+                            {item.title}
+                          </span>
+                          <span className="text-muted text-sm">
+                            {item.description.slice(0, 40)}...
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <Icon icon={"solar:alt-arrow-right-outline"} />
-                    </div>
-                  </Link>
+                      <div>
+                        <Icon icon={"solar:alt-arrow-right-outline"} />
+                      </div>
+                    </Link>
+                  </li>
                 ))
               ) : (
                 <p className="text-center text-muted">Not results found.</p>
               )}
-            </section>
+            </ul>
             <div className="h-px w-full my-2.5 bg-secondary" />
             <footer className="p-2.5 flex justify-end text-muted text-sm">
               yunusedev &copy; 2025
             </footer>
           </DialogBody>
         </Dialog>
-        <Link target="_blank" className="hidden lg:flex" href={"https://github.com/yunusedev"}>
+        <Link
+          target="_blank"
+          className="hidden lg:flex"
+          href={"https://github.com/yunusedev"}
+        >
           <Button color="secondary" isIconOnly>
             <Icon
               className="text-base dark:invert"
