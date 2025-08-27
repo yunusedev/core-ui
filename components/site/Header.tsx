@@ -150,7 +150,7 @@ export const Header = () => {
             </Button>
           </DialogTrigger>
           <DialogTitle className="hidden" />
-          <DialogBody className="lg:w-lg p-0 px-0 gap-0">
+          <DialogBody key={results.length} className="lg:w-lg p-0 px-0 gap-0">
             <DialogHeader className="flex flex-row p-2.5 pb-0 gap-3">
               <div className="flex items-center gap-2 w-full">
                 <Icon icon={"solar:magnifer-outline"} />
