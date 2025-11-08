@@ -51,7 +51,7 @@ const AccordionContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWi
 	({ children, className, ...props }, forwardedRef) => (
 		<Helper.Content
 			className={cn(
-				"overflow-hidden bg-background-100 border-t border-t-secondary rounded-b-lg text-sm text-muted data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown",
+				"overflow-hidden bg-background-100 border-t border-t-secondary rounded-b-lg text-sm text-muted transform-gpu data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown",
 				className,
 			)}
 			{...props}
