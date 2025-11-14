@@ -27,7 +27,7 @@ className?:string;
                         {children}
                     </Helper.Trigger>
                     <Helper.Portal>
-                        <Helper.Content className={cn("p-2 px-3 animate-in data-[state=delayed-open]:zoom-in-95 data-[state=delayed-open]:fade-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=closed]:fade-out-0 border border-secondary rounded-md text-muted", className)}>
+                        <Helper.Content className={cn("p-2 px-3 animate-in data-[state=delayed-open]:zoom-in-95 data-[state=delayed-open]:fade-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=closed]:fade-out-0 border border-secondary bg-background rounded-md text-muted", className)}>
                             {content}
                             <Helper.Arrow className="fill-secondary-100" />
                         </Helper.Content>
